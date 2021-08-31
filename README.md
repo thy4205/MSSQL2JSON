@@ -3,7 +3,7 @@ This is a Python script to create JSON files from Microsoft SQL Server, if whate
 
 MSSQL2JSON generates a JSON file table name, colume name, colume type and rows of data.
 
-This script creates the JSON file for data only.
+This script creates the JSON file for data only, it also skips on encoding UTF-8 charactors.
 
 This script is also only tested in Windows Enviroment
 
@@ -15,7 +15,7 @@ This script is also only tested in Windows Enviroment
 ### Instructions
 1. Download or git clone the project if you feel like being fancy
 1. Change the required parameters as stated in the script
-  * Database IP address/ Hostname 
+  * Database IP address / Hostname 
   * Database Table Name
   * User Name
   * Password
