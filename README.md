@@ -13,8 +13,8 @@ This script creates the JSON file for data only.
 ### Instructions
 1. Download or git clone the script
 1. Change the required parameters in the script
-  1. Database IP address
-  1. Database Table Name
-  1. User Name
-  1. Password
-  1. OBDC Driver Name (if Required)
+  * Database IP address
+  * Database Table Name
+  * User Name
+  * Password
+  * OBDC Driver Name (if Required)
