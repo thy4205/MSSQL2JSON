@@ -3,7 +3,8 @@ This is a Python script to create JSON files from Microsoft SQL Server, if whate
 
 This script creates the JSON file for data only.
 
-<h6>Requirement</h6>
+
+## Requirement
 * Software to create the SQL table structure (E.g. Online SQL convertor like SQLines)
 * Basic knowlege for SQL
 * Python 3
