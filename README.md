@@ -6,3 +6,5 @@ This script creates the JSON file for data only.
 <h6>Requirement</h6>
 * Software to create the SQL table structure (E.g. Online SQL convertor like SQLines)
 * Basic knowlege for SQL
+* Python 3
+* OBDC Driver from Mircosoft that is suitable for your verison
