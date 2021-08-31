@@ -3,18 +3,23 @@ This is a Python script to create JSON files from Microsoft SQL Server, if whate
 
 This script creates the JSON file for data only.
 
+This script is also only tested in Windows Enviroment
 
 ## Requirement
-* Software to create the SQL table structure (E.g. Online SQL convertor like SQLines)
 * Basic knowlege for SQL
 * Python 3
 * OBDC Driver from Mircosoft that is suitable for your verison, the script defaults to MSSQL8, which do not support JSON export
 
 ### Instructions
-1. Download or git clone the script
-1. Change the required parameters in the script
+1. Download or git clone the project if you feel like being fancy
+1. Change the required parameters as stated in the script
   * Database IP address
   * Database Table Name
   * User Name
   * Password
   * OBDC Driver Name (if Required)
+1. Run the script in Command Prompt
+1. The Output JSON file is generated and placed in the script directory.
+
+## Caution
+* This script will not care about how big your table is and it will consume large amount of memory if the table is big enough. However it should work fine in most of the situations.
