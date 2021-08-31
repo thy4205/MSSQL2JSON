@@ -8,4 +8,13 @@ This script creates the JSON file for data only.
 * Software to create the SQL table structure (E.g. Online SQL convertor like SQLines)
 * Basic knowlege for SQL
 * Python 3
-* OBDC Driver from Mircosoft that is suitable for your verison
+* OBDC Driver from Mircosoft that is suitable for your verison, the script defaults to MSSQL8, which do not support JSON export
+
+### Instructions
+1. Download or git clone the script
+1. Change the required parameters in the script
+  1. Database IP address
+  1. Database Table Name
+  1. User Name
+  1. Password
+  1. OBDC Driver Name (if Required)
