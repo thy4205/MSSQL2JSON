@@ -25,3 +25,4 @@ This script is also only tested in Windows Enviroment
 
 ## Caution
 * This script will not care about how big your table is and it will consume large amount of memory if the table is big enough. However it should work fine in most of the situations.
+* If you run out of memory when you ran the script, try adding conditions to the query.
