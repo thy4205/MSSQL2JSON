@@ -12,11 +12,11 @@ class DateEncoder(json.JSONEncoder):
             return obj.strftime("%Y-%m-%d")  
         else:  
             return json.JSONEncoder.default(self, obj) 
-server = 'kfibsql' #your servers IP or DNS Hostname
+server = '192.168.1.20' #your servers IP or DNS Hostname
 database = 'kf3'    #Your desired Database you want to create JSON from
 username = 'kf3migrate' #Username for migration, make sure the user has read access
 password = 'kf3migrate' #Password, self explanatory
-tablename = 'kfvendor' #Table Name,table to create JSON from
+tablename = 'kfpolclaim' #Table Name,table to create JSON from
 querylimit = '' #If you want to add conditions to the qurery
 
 #Make sure you have installed and activate the required OBDC driver and change the next line
