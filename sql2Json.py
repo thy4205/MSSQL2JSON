@@ -13,25 +13,44 @@ class DateEncoder(json.JSONEncoder):
             return obj.strftime("%Y-%m-%d")  
         else:  
             return json.JSONEncoder.default(self, obj) 
-server = 'sqlserver' #your servers IP or DNS Hostname
-database = 'databaseName'    #Your desired Database you want to create JSON from
-username = 'UserName' #Username for migration, make sure the user has read access
-password = 'Password' #Password, self explanatory
-tablenames = ['tableName'] #Table Name,table to create JSON from
+server = '' #your servers IP or DNS Hostname
+database = ''    #Your desired Database you want to create JSON from
+username = '' #Username for migration, make sure the user has read access
+password = '' #Password, self explanatory
+
+#table name 
+tablenames = ['table1','table2'] 
+
+
+#if your table have an update date, table that in this list will be ignore the update date. (Select all)
+#please refer to line 43 for the statement 
+#designed to be used with JSON2MYSQLpy
+constantTable = []
+
+#tables that needs to be truncated before the import, use with caution
+#designed to be used with JSON2MYSQLpy
+tableToClear = []
+
+#Line of data to be included in each JSON file.
 rowChunks = 25000
 
 #Make sure you have installed and activate the required OBDC driver and change the next line
+#To connect to SQL Server 2005, you need to use SQL Server Native Clinet 10.0 ODBC driver.
 cnxn = pyodbc.connect('DRIVER={SQL Server Native Client 10.0};SERVER='+server+';DATABASE='+database+';UID='+username+';PWD='+ password)
 cursor = cnxn.cursor()
-#Sample select query
+
 
 for tablename in tablenames:
-    cursor.execute("SELECT * from " + tablename) 
+    print (tablename)
+    needUpd = tablename in constantTable
+    needUpdStr ="" if tablename in constantTable else  " WHERE UpdDate>='2023-01-01'"
+    cursor.execute("SELECT * from " + tablename + needUpdStr) 
     rows = cursor.fetchall()
     a_dict = dict()
     a_dict["tablename"] = tablename
     a_dict["columns"] =[column[0] for column in cursor.description]
     a_dict["nullable"] =[column[6] for column in cursor.description]
+    a_dict["clearTable"] = tablename in tableToClear
     rowCountSum = len(rows)
     timeToRun = math.ceil(rowCountSum / rowChunks)
     cname = []
